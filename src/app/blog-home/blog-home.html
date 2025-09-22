@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="mt-4 p-5 bg-secondary text-white rounded">
+        <h1 class="display-1">Welcome</h1>
+
+        @if (this._authService.isLoggedIn()) {
+            <h1 class="display-3">{{ this._authService.userName }}</h1>
+        }
+    </div>
+</div>
+
+<!-- <h1 class="display-1">
+    {{ 'isLoggedIn + ' + this._authService.isLoggedIn() }}
+</h1> -->

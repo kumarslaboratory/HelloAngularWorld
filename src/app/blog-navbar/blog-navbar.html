@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      @if(this.isLoggedIn())
+      {
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/posts" routerLinkActive="active">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/comments" routerLinkActive="active">Comments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/albums" routerLinkActive="active">Albums</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/photos" routerLinkActive="active">Photos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/todos" routerLinkActive="active">Todos</a>
+          </li>
+          @if(this.isAdmin()){
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+            </li>
+          }
+        </ul>
+      }
+      <form class="d-flex">
+        @if(!this.isLoggedIn()){
+        <button class="btn btn-warning text-dark me-2" type="button">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Log In</a>
+        </button>
+        }
+        @if(this.isLoggedIn()){
+        <button (click)="this.onLogOut()" class="btn btn-warning text-dark" type="button">Log Out</button>
+        }
+      </form>
+    </div>
+  </div>
+</nav>

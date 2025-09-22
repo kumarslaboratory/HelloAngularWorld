@@ -1,0 +1,96 @@
+<div class="container-fluid mt-3">
+  <nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+          </li>
+        </ul>
+        <form class="d-flex">
+          <button class="btn btn-primary" type="button">
+            <a class="nav-link active" href="javascript:void();" data-bs-toggle="modal" data-bs-target="#myModal">Create
+              Post</a>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    @for (post of this.posts; track $index)
+    {
+      @let reference = "/post/" + post.id;
+      <div *ngIf="$index % 2 === 0" class="col-6 p-3 text-white">
+        <div class="card d-flex justify-content-center" style="width:auto;">
+          <!-- <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="Card image"
+            style="width:100%"> -->
+          <div class="card-body">
+            <h4 class="card-title">{{ post.title }}</h4>
+            <p class="card-text">{{ post.body }}</p>
+            <a [routerLink]="reference" class="btn btn-primary">See more....</a>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="$index % 2 != 0" class="col-6 p-3 text-white">
+        <div class="card d-flex justify-content-center" style="width:auto;">
+          <div class="card-body">
+            <h4 class="card-title">{{ post.title }}</h4>
+            <p class="card-text">{{ post.body }}</p>
+            <a [routerLink]="reference" class="btn btn-primary">See more....</a>
+          </div>
+          <!-- <img 
+          class="card-img-bottom" 
+          src="https://www.w3schools.com/bootstrap4/img_avatar6.png" 
+          alt="Card image" style="width:100%"> -->
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- 
+<div class="container">
+  <div class="container">
+    @for (post of this.posts; track $index) {
+    <div class="card mt-3">
+      <div class="card-body">
+        <h4 class="card-title">{{ post.title }}</h4>
+        <p class="card-text">{{ post.body }}</p>
+        <a href="javascript:void();" class="btn btn-primary card-link">Read more ...</a>
+      </div>
+    </div>
+    }
+  </div>
+</div> -->
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Create Post</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-blog-create-post></app-blog-create-post>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>

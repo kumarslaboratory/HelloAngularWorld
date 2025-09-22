@@ -1,0 +1,37 @@
+<div class="container mt-3">
+    <form [formGroup]="this.signUpForm" (ngSubmit)="this.onSignUpFormSubmit()">
+        <div class="mb-3 mt-3">
+            <label for="userName" class="form-label">User Name:</label>
+            <input
+                requied
+                formControlName="userName" 
+                type="text" 
+                class="form-control" 
+                id="userName"
+                placeholder="Enter User Name" 
+                name="userName">
+                @if(this.userName?.touched && this.userName?.invalid){
+                    <div class="alert alert-danger">
+                        <strong>User Name required!</strong>
+                    </div>
+                }
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input 
+                required
+                formControlName="password" 
+                type="password" 
+                class="form-control" 
+                id="password"
+                placeholder="Enter Password" 
+                name="password">
+                @if(this.password?.touched && this.password?.invalid){
+                    <div class="alert alert-danger">
+                        <strong>Password is required!</strong>
+                    </div>
+                }
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

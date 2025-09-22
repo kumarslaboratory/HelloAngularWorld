@@ -1,0 +1,51 @@
+
+<div class="container mt-3">
+  <h2>LogIn</h2>
+
+    @if(this.hasLoginError){
+      <div class="alert alert-danger">
+        <strong>Invalid email or password!</strong>
+      </div>
+    }
+
+    <form [formGroup]="this.loginForm" (ngSubmit)="this.onLogInFormSubmit()">
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input 
+      requied
+      formControlName="email"
+      autocomplete="email"
+      type="email" 
+      class="form-control" 
+      id="email" 
+      placeholder="Email" 
+      name="email">
+        @if(this.email?.touched && this.email?.invalid){
+            <div class="alert alert-danger">
+            <strong>Email required!</strong>
+            </div>
+        }
+    </div>
+    <div class="mb-3">
+      <label for="password">Password:</label>
+      <input 
+      requied
+      formControlName="password"
+      autocomplete="current-password"
+      type="password" 
+      class="form-control" 
+      id="password" 
+      placeholder="Password" 
+      name="password">
+        @if(this.password?.touched && this.password?.invalid){
+            <div class="alert alert-danger">
+                <strong>Password is required!</strong>
+            </div>
+        }
+    </div>
+    <button 
+    [disabled]="this.loginForm.invalid"
+    type="submit" 
+    class="btn btn-primary mb-3">Submit</button>
+  </form>
+</div>

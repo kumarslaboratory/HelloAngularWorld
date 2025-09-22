@@ -1,0 +1,50 @@
+<div class="container-fluid mt-3">  
+  <nav class="navbar navbar-expand-sm">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"></li> <li class="nav-item"></li> <li class="nav-item"></li>
+      </ul>
+      <form class="d-flex">
+        <button class="btn btn-primary" type="button">
+          <a class="nav-link active" href="javascript:void();" data-bs-toggle="modal" data-bs-target="#myModal">Create Todo</a>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="container">
+  @for ( todo of this.todos; track $index) {
+    <h2>{{ todo.title }}</h2>
+    <p>{{ todo.completed }}</p>
+  }
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Create Todo</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!-- <app-blog-create-post></app-blog-create-post> -->
+      </div>
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    <form [formGroup]="this.createPostForm" (ngSubmit)="this.onCreatePostFormSubmit()">
+        <div class="mb-3 mt-3">
+            <label for="postTitle" class="form-label">Title:</label>
+            <input
+                requied
+                formControlName="postTitle" 
+                autocomplete="off"
+                type="text" 
+                class="form-control" 
+                id="postTitle"
+                placeholder="Enter User Name" 
+                name="postTitle">
+                @if(this.postTitle?.touched && this.postTitle?.invalid){
+                    <div class="alert alert-danger">
+                        <strong>Title required!</strong>
+                    </div>
+                }
+        </div>
+        <div class="mb-3">
+            <label for="postBody" class="form-label">Body:</label>
+            <textarea 
+            required
+            formControlName="postBody"
+            autocomplete="off"
+            class="form-control" 
+            rows="5" 
+            id="postBody" 
+            placeholder="Enter Post Body" 
+            name="postBody"></textarea>
+                @if(this.postBody?.touched && this.postBody?.invalid){
+                    <div class="alert alert-danger">
+                        <strong>Body is required!</strong>
+                    </div>
+                }
+        </div>
+        <button
+        [disabled]="this.createPostForm.invalid"
+        type="submit" 
+        class="btn btn-primary" 
+        data-bs-dismiss="modal">Submit</button>
+    </form>
+</div>
