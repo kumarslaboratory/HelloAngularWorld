@@ -8,12 +8,11 @@ import { TodoService } from '../services/todo-service';
   styleUrl: './blog-user-todos.css'
 })
 export class BlogUserTodos implements OnInit {
-  protected todos : any[] = [];
-  constructor(private _todoService : TodoService) { 
+  todos: any[] = [];
+  constructor(private _todoService: TodoService) {
   }
 
   ngOnInit(): void {
-    this._todoService.getAll()
-    .subscribe({ next: (response) => this.todos = response } );
+    this._todoService.getAll().subscribe({ next: (response) => this.todos = response });
   }
 }

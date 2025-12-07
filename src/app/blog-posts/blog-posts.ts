@@ -11,12 +11,16 @@ import { RouterLink, RouterModule } from '@angular/router';
   styleUrl: './blog-posts.css'
 })
 export class BlogPosts implements OnInit {
-  protected posts : any[] = [];
-  constructor(private _postService : PostService) { 
+  posts: any[] = [];
+  constructor(private _postService: PostService) {
   }
 
   ngOnInit(): void {
     this._postService.getAll()
-    .subscribe({ next: (response) => this.posts = response });
+      .subscribe({
+        next: (response) => {
+          this.posts = response; console.log('response = ' + this.posts);
+        }
+      });
   }
 }
